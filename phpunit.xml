@@ -7,4 +7,9 @@
             <directory>tests</directory>
         </testsuite>
     </testsuites>
+    <php>
+        <var name="DB_DSN" value="mysql:dbname=ci;host=127.0.0。1" />
+        <var name="DB_USER" value="travis" />
+        <var name="DB_PASSWD" value="" />
+    </php>
 </phpunit>
