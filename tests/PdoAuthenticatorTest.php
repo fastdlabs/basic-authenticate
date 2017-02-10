@@ -11,13 +11,30 @@
 use FastD\BasicAuthenticate\PdoAuthenticator;
 
 
-class PdoAuthenticatorTest extends PHPUnit_Framework_TestCase
+class PdoAuthenticatorTest extends PHPUnit_Extensions_Database_TestCase
 {
-    public $pdo;
+    protected $pdo;
 
-    public function setup()
+    /**
+     * Returns the test database connection.
+     *
+     * @return PHPUnit_Extensions_Database_DB_IDatabaseConnection
+     */
+    protected function getConnection()
     {
-        $this->pdo = new \PDO("mysql:dbname=ci;host=127.0.0.1", 'root', '123456');
+        $this->pdo = new \PDO("mysql:dbname=ci;host=127.0.0.1", 'travis');
+
+        return $this->createDefaultDBConnection($this->pdo);
+    }
+
+    /**
+     * Returns the test dataset.
+     *
+     * @return \PHPUnit_Extensions_Database_DataSet_IDataSet
+     */
+    protected function getDataSet()
+    {
+        return new \PHPUnit_Extensions_Database_DataSet_YamlDataSet(__DIR__ . '/users.yml');
     }
 
     public function testPdoAuthenticatorInit()
@@ -29,10 +46,10 @@ class PdoAuthenticatorTest extends PHPUnit_Framework_TestCase
             'hash' => 'hash'
         ]);
 
-        $isPassed = $pdo->validate('root', 't00r');
+        $isPassed = $pdo->validate('admin', 'admin');
 
         $this->assertTrue($isPassed);
-        $this->assertEquals(['user' => 'root'], $pdo->getUserInfo());
+        $this->assertEquals(['user' => 'admin'], $pdo->getUserInfo());
         $this->assertFalse($pdo->validate('foo', 'bar'));
         $this->assertFalse($pdo->validate('root', 'bar'));
     }

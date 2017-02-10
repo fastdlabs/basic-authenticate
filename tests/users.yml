@@ -1,0 +1,4 @@
+users:
+  -
+    user: admin
+    hash: "$2y$10$Fi9oCWX843MxWZ10UYCeIeieYj0Zymhwi/E3TGX2IGMfjQDilu85q"

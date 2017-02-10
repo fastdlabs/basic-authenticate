@@ -12,7 +12,8 @@
         "fastd/middleware": "~1.0.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^5.0"
+        "phpunit/phpunit": "^5.0",
+        "phpunit/dbunit": "^2.0"
     },
     "autoload": {
         "psr-4": {
