@@ -1,2 +1,2 @@
 # basic-authenticate
-Basic Authenticate.
+HTTP basic authenticate support psr7
