@@ -25,10 +25,7 @@ class PdoAuthenticatorTest extends PHPUnit_Extensions_Database_TestCase
         $this->pdo = new \PDO("mysql:dbname=ci;host=127.0.0.1", 'travis');
 
         $this->pdo->exec(
-            "CREATE TABLE ci (
-                user VARCHAR(32) NOT NULL,
-                hash VARCHAR(255) NOT NULL
-            )"
+            "CREATE DATABASE ci () engine=innodb "
         );
 
         return $this->createDefaultDBConnection($this->pdo);
