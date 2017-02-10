@@ -9,8 +9,6 @@ services:
 
 before_install:
   - mysql -e 'CREATE DATABASE ci;'
-  - mysql -e 'USE ci;'
-  - mysql -e 'CREATE TABLE users (user VARCHAR(32) NOT NULL, hash VARCHAR(255) NOT NULL)'
 
 install: composer install
 
