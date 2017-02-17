@@ -10,10 +10,9 @@
 namespace FastD\BasicAuthenticate;
 
 
-use FastD\Http\JsonResponse;
 use FastD\Http\Response;
 use FastD\Middleware\DelegateInterface;
-use FastD\Middleware\ServerMiddleware;
+use FastD\Middleware\Middleware;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use RuntimeException;
@@ -23,7 +22,7 @@ use SplStack;
  * Class HttpBasicAuthentication
  * @package FastD\BasicAuthenticate
  */
-class HttpBasicAuthentication extends ServerMiddleware
+class HttpBasicAuthentication extends Middleware
 {
     const ENVIRONMENT = 'HTTP_AUTHORIZATION';
     const REALM = 'Protected';
