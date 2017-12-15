@@ -22,7 +22,7 @@ class PdoAuthenticatorTest extends PHPUnit_Extensions_Database_TestCase
      */
     protected function getConnection()
     {
-        $this->pdo = new \PDO("mysql:dbname=ci;host=127.0.0.1", 'travis');
+        $this->pdo = new \PDO("mysql:dbname=ci;host=127.0.0.1", 'root');
 
         $this->pdo->exec(
             "CREATE TABLE users (
