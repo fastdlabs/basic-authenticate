@@ -117,7 +117,7 @@ class HttpBasicAuthentication extends Middleware
                 ->withHeader('WWW-Authenticate', sprintf('Basic realm=\'%s\'', HttpBasicAuthentication::REALM));
         }
 
-        return $delegate($request);
+        return $delegate->process($request);
     }
 
     /**
